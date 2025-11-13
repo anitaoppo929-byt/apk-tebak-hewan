@@ -2,17 +2,32 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background: linear-gradient(135deg, #a8e6cf, #dcedc1, #ffd3b6);
-  background-image: url('zoo-bg.jpg'); /* bisa ganti gambar background */
+  background: url('zoo-bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #2f3e46;
+  overflow: hidden;
 }
 
-/* MENU UTAMA */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px) brightness(0.95);
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+}
+
+.menu-container, 
+#gameContainer,
+#gameCompleted {
+  position: relative;
+  z-index: 1;
+}
+
+/* Menu Awal */
 .menu-container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
@@ -32,13 +47,12 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-
 .btn:hover {
   background-color: #4b8450;
   transform: scale(1.05);
 }
 
-/* GAME */
+/* Game Container */
 #gameContainer {
   display: none;
   background: rgba(255, 255, 255, 0.85);
@@ -47,74 +61,6 @@ body {
   text-align: center;
   width: 380px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-}
-
-#topBar {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.animal-row {
-  margin-top: 15px;
-}
-
-.animal-img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border: 4px solid #6b705c;
-}
-
-#guessInput {
-  width: 80%;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 8px;
-  border: 2px solid #a5a58d;
-  text-align: center;
-  font-size: 16px;
-}
-
-.btn-row {
-  margin-top: 15px;
-}
-
-.game-btn {
-  background-color: #7f9e7e;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  margin: 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.game-btn:hover {
-  background-color: #5b7553;
-  transform: scale(1.05);
-}
-
-#clueContainer {
-  margin-top: 15px;
-  font-style: italic;
-  background: #fff3b0;
-  padding: 10px;
-  border-radius: 10px;
-  display: none;
-}
-
-#clueContainer.visible {
-  display: block;
-}
-
-#result {
-  margin-top: 10px;
-  font-weight: bold;
 }
 
 #levelContainer {
@@ -139,6 +85,73 @@ body {
 .level-circle.active {
   background: #6b705c;
   color: white;
+}
+
+/* Gambar Hewan (blur di awal) */
+.animal-row {
+  margin-top: 15px;
+}
+
+.animal-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border: 4px solid #6b705c;
+  filter: blur(15px) brightness(0.8);
+  transition: all 0.4s ease;
+}
+
+.animal-img.revealed {
+  filter: blur(0) brightness(1);
+  transform: scale(1.03);
+}
+
+/* Input & Tombol */
+#guessInput {
+  width: 80%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 2px solid #a5a58d;
+  text-align: center;
+  font-size: 16px;
+}
+
+.game-btn {
+  background-color: #7f9e7e;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.game-btn:hover {
+  background-color: #5b7553;
+  transform: scale(1.05);
+}
+
+/* Petunjuk di layar, bukan notifikasi */
+#clueContainer {
+  margin-top: 15px;
+  font-style: italic;
+  background: #fff3b0;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+#clueContainer.visible {
+  display: block;
+}
+
+/* Hasil & Game Selesai */
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
 }
 
 #gameCompleted {
