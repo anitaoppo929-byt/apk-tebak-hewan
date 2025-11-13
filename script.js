@@ -34,10 +34,14 @@ function loadLevel() {
   }
 
   const animal = animals[currentLevel];
-  document.getElementById('animalImage').src = animal.image;
+  const animalImg = document.getElementById('animalImage');
+  animalImg.src = animal.image;
+  animalImg.classList.remove("revealed");
+
   document.getElementById('guessInput').value = "";
   document.getElementById('result').innerText = "";
   document.getElementById('clueContainer').style.display = "none";
+
   updateLevelDisplay();
 
   timeLeft = 30;
@@ -74,12 +78,16 @@ function updateLevelDisplay() {
 
 document.getElementById('guessButton').addEventListener('click', function() {
   const guess = document.getElementById('guessInput').value.trim().toLowerCase();
-  const correct = animals[currentLevel].name.toLowerCase();
+  const animal = animals[currentLevel];
+  const correct = animal.name.toLowerCase();
 
   if (guess === correct) {
     document.getElementById('result').innerText = "🎉 Benar! Itu " + correct.toUpperCase();
     coins += 5;
     document.getElementById('coins').innerText = coins;
+
+    document.getElementById('animalImage').classList.add("revealed");
+
     clearInterval(timer);
     setTimeout(nextLevel, 1500);
   } else {
@@ -95,14 +103,14 @@ document.getElementById('resetButton').addEventListener('click', function() {
   nextLevel();
 });
 
-function tampilkanPetunjuk() {
-  const clue = animals[currentLevel].clue;
+document.getElementById('clueButton').addEventListener('click', function() {
+  const animal = animals[currentLevel];
   const clueBox = document.getElementById('clueContainer');
-  clueBox.innerText = "💡 Petunjuk: " + clue;
+  clueBox.innerText = "💡 Petunjuk: " + animal.clue;
   clueBox.style.display = "block";
   coins -= 2;
   document.getElementById('coins').innerText = coins;
-}
+});
 
 function nextLevel() {
   currentLevel++;
