@@ -1,19 +1,19 @@
 // Data Hewan
 const allAnimals = [
-    {name:"kucing", image:"k.JPG"},
-    {name:"anjing", image:"A.JPG"},
-    {name:"gajah", image:"G.JPG"},
-    {name:"harimau", image:"H.JPG"},
-    {name:"singa", image:"s.AVIF"},
-    {name:"kelinci", image:"K.WEBP"},
-    {name:"jerapah", image:"J.JPG"},
-    {name:"zebra", image:"Z.JPG"},
-    {name:"kuda", image:"D.WEBP"},
-    {name:"panda", image:"P.JPG"},
-    {name:"buaya", image:"B.JPG"},
-    {name:"tikus", image:"T.PNG"},
-    {name:"unta", image:"unta.AVIF"},
-    {name:"monyet", image:"J.JPG"}
+    {name:"kucing", image:"k.jpg"},
+    {name:"anjing", image:"A.jpg"},
+    {name:"gajah", image:"G.jpg"},
+    {name:"harimau", image:"H.jpg"},
+    {name:"singa", image:"s.avif"},
+    {name:"kelinci", image:"K.webp"},
+    {name:"jerapah", image:"J.jpg"},
+    {name:"zebra", image:"Z.jpg"},
+    {name:"kuda", image:"D.webp"},
+    {name:"panda", image:"P.jpg"},
+    {name:"buaya", image:"B.jpg"},
+    {name:"tikus", image:"T.png"},
+    {name:"unta", image:"unta.avif"},
+    {name:"monyet", image:"J.jpg"}
 ];
 
 let level = 1, 
