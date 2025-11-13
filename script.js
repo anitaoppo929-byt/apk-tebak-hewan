@@ -7,7 +7,7 @@ const allAnimals = [
     {name:"kuda", image:"D.WEBP"}, {name:"panda", image:"P.JPG"}
     {name:"buaya", image:"B.JPG"}, {name:"tikus", image:"T.PNG"},
     {name:"unta", image:"unta.AVIF"}, {name:"monyet", image:"J.JPG"}
-   
+   ];
 
 let level=1, maxLevel=3, usedAnimals=[], animalsThisLevel=[], timer, timeLeft=30, coins=0;
 
