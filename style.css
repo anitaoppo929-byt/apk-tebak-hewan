@@ -1,164 +1,79 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-  background: url('zoo-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #2f3e46;
-  overflow: hidden;
-}
-
-body::before {
-  content: "";
-  position: absolute;
+/* Background hewan animasi */
+.background-animals {
+  position: fixed;
   inset: 0;
-  backdrop-filter: blur(6px) brightness(0.95);
-  background: rgba(255, 255, 255, 0.2);
   z-index: 0;
+  overflow: hidden;
+  pointer-events: none; /* supaya tidak mengganggu klik */
 }
 
-.menu-container, 
-#gameContainer,
-#gameCompleted {
-  position: relative;
-  z-index: 1;
+.bg-animal {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  filter: blur(1px);
+  animation: moveAnimal linear infinite;
 }
 
-/* Menu Awal */
-.menu-container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+/* Animasi bergerak dari kiri ke kanan */
+@keyframes moveAnimal {
+  0% {
+    transform: translateX(-100px) translateY(var(--top, 0px));
+  }
+  100% {
+    transform: translateX(110vw) translateY(var(--top, 0px));
+  }
 }
 
-.btn {
-  background-color: #5c965c;
-  color: white;
-  border: none;
-  padding: 14px 30px;
-  margin-top: 15px;
-  border-radius: 12px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
+/* Contoh 10 hewan dengan delay berbeda */
+.background-animals img:nth-child(1) {
+  --top: 50px;
+  animation-duration: 25s;
+  animation-delay: 0s;
 }
-.btn:hover {
-  background-color: #4b8450;
-  transform: scale(1.05);
+.background-animals img:nth-child(2) {
+  --top: 120px;
+  animation-duration: 30s;
+  animation-delay: 3s;
 }
-
-/* Game Container */
-#gameContainer {
-  display: none;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  width: 380px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+.background-animals img:nth-child(3) {
+  --top: 200px;
+  animation-duration: 28s;
+  animation-delay: 5s;
 }
-
-#levelContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  flex-wrap: wrap;
+.background-animals img:nth-child(4) {
+  --top: 300px;
+  animation-duration: 35s;
+  animation-delay: 2s;
 }
-
-.level-circle {
-  width: 25px;
-  height: 25px;
-  background: #cce3de;
-  border-radius: 50%;
-  margin: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
+.background-animals img:nth-child(5) {
+  --top: 400px;
+  animation-duration: 32s;
+  animation-delay: 6s;
 }
-
-.level-circle.active {
-  background: #6b705c;
-  color: white;
+.background-animals img:nth-child(6) {
+  --top: 150px;
+  animation-duration: 27s;
+  animation-delay: 1s;
 }
-
-/* Gambar Hewan (blur di awal) */
-.animal-row {
-  margin-top: 15px;
+.background-animals img:nth-child(7) {
+  --top: 250px;
+  animation-duration: 33s;
+  animation-delay: 4s;
 }
-
-.animal-img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border: 4px solid #6b705c;
-  filter: blur(15px) brightness(0.8);
-  transition: all 0.4s ease;
+.background-animals img:nth-child(8) {
+  --top: 350px;
+  animation-duration: 29s;
+  animation-delay: 7s;
 }
-
-.animal-img.revealed {
-  filter: blur(0) brightness(1);
-  transform: scale(1.03);
+.background-animals img:nth-child(9) {
+  --top: 80px;
+  animation-duration: 31s;
+  animation-delay: 0s;
 }
-
-/* Input & Tombol */
-#guessInput {
-  width: 80%;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 8px;
-  border: 2px solid #a5a58d;
-  text-align: center;
-  font-size: 16px;
-}
-
-.game-btn {
-  background-color: #7f9e7e;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  margin: 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.game-btn:hover {
-  background-color: #5b7553;
-  transform: scale(1.05);
-}
-
-/* Petunjuk di layar, bukan notifikasi */
-#clueContainer {
-  margin-top: 15px;
-  font-style: italic;
-  background: #fff3b0;
-  padding: 10px;
-  border-radius: 10px;
-  display: none;
-}
-#clueContainer.visible {
-  display: block;
-}
-
-/* Hasil & Game Selesai */
-#result {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #333;
-}
-
-#gameCompleted {
-  display: none;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.background-animals img:nth-child(10) {
+  --top: 220px;
+  animation-duration: 34s;
+  animation-delay: 5s;
 }
