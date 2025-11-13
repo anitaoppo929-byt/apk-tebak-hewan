@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- MENU UTAMA -->
+  <!-- Menu Awal -->
   <div class="menu-container" id="menuContainer">
     <h1>🐾 Tantangan Tebak Hewan 🐾</h1>
     <button class="btn" onclick="mulaiGame()">Mulai Permainan</button>
   </div>
 
-  <!-- GAME -->
+  <!-- Game -->
   <div id="gameContainer">
     <div id="topBar">
       <div id="coinDisplay">💰 Koin: <span id="coins">10</span></div>
@@ -30,14 +30,14 @@
     <div class="btn-row">
       <button id="guessButton" class="game-btn">Tebak</button>
       <button id="resetButton" class="game-btn">Lewati</button>
-      <button id="clueButton" onclick="tampilkanPetunjuk()">🔍 Petunjuk</button>
+      <button id="clueButton" class="game-btn">🔍 Petunjuk</button>
     </div>
 
     <div id="clueContainer"></div>
     <div id="result"></div>
   </div>
 
-  <!-- GAME SELESAI -->
+  <!-- Game Selesai -->
   <div id="gameCompleted">
     <h1>🎉 Selamat! Kamu Menyelesaikan Semua Hewan!</h1>
     <button onclick="ulangGame()">Main Lagi</button>
