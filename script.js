@@ -1,15 +1,28 @@
 // Data Hewan
 const allAnimals = [
-    {name:"kucing", image:"k.JPG"}, {name:"anjing", image:"A.JPG"},
-    {name:"gajah", image:"G.JPG"}, {name:"harimau", image:"H.JPG"},
-    {name:"singa", image:"s.AVIF"}, {name:"kelinci", image:"K.WEBP"},
-    {name:"jerapah", image:"J.JPG"}, {name:"zebra", image:"Z.JPG"},
-    {name:"kuda", image:"D.WEBP"}, {name:"panda", image:"P.JPG"}
-    {name:"buaya", image:"B.JPG"}, {name:"tikus", image:"T.PNG"},
-    {name:"unta", image:"unta.AVIF"}, {name:"monyet", image:"J.JPG"}
-   ];
+    {name:"kucing", image:"k.JPG"},
+    {name:"anjing", image:"A.JPG"},
+    {name:"gajah", image:"G.JPG"},
+    {name:"harimau", image:"H.JPG"},
+    {name:"singa", image:"s.AVIF"},
+    {name:"kelinci", image:"K.WEBP"},
+    {name:"jerapah", image:"J.JPG"},
+    {name:"zebra", image:"Z.JPG"},
+    {name:"kuda", image:"D.WEBP"},
+    {name:"panda", image:"P.JPG"},
+    {name:"buaya", image:"B.JPG"},
+    {name:"tikus", image:"T.PNG"},
+    {name:"unta", image:"unta.AVIF"},
+    {name:"monyet", image:"J.JPG"}
+];
 
-let level=1, maxLevel=3, usedAnimals=[], animalsThisLevel=[], timer, timeLeft=30, coins=0;
+let level = 1, 
+    maxLevel = 3, 
+    usedAnimals = [], 
+    animalsThisLevel = [], 
+    timer, 
+    timeLeft = 30, 
+    coins = 0;
 
 // Elements
 const animal1Img = document.getElementById("animal1");
