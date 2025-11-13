@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Tantangan Tebak Hewan - Kebun Binatang</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tebak Hewan - Kebun Binatang</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- MENU AWAL -->
-<div class="menu-container" id="menuContainer">
-    <h1>Tantangan Tebak Hewan 🐾</h1>
+  <!-- MENU UTAMA -->
+  <div class="menu-container" id="menuContainer">
+    <h1>🐾 Tantangan Tebak Hewan 🐾</h1>
     <button class="btn" onclick="mulaiGame()">Mulai Permainan</button>
-</div>
+  </div>
 
-<!-- GAME -->
-<div id="gameContainer">
-    <div id="coinDisplay">💰 Koin: <span id="coins">10</span></div>
+  <!-- GAME -->
+  <div id="gameContainer">
+    <div id="topBar">
+      <div id="coinDisplay">💰 Koin: <span id="coins">10</span></div>
+      <div id="timer">⏳ Waktu: 30 detik</div>
+    </div>
+
     <div id="levelContainer"></div>
-    <div id="timer"></div>
 
     <div class="animal-row">
-        <img id="animalImage" class="animal-img" src="" alt="Hewan">
+      <img id="animalImage" class="animal-img" src="" alt="Hewan">
     </div>
 
     <input type="text" id="guessInput" placeholder="Tebak nama hewan...">
-    <button id="guessButton" class="game-btn">Tebak</button>
-    <button id="resetButton" class="game-btn">Lewati</button>
+    <div class="btn-row">
+      <button id="guessButton" class="game-btn">Tebak</button>
+      <button id="resetButton" class="game-btn">Lewati</button>
+      <button id="clueButton" onclick="tampilkanPetunjuk()">🔍 Petunjuk</button>
+    </div>
 
-    <button id="clueButton" onclick="tampilkanPetunjuk()">🔍 Petunjuk</button>
     <div id="clueContainer"></div>
-
     <div id="result"></div>
-</div>
+  </div>
 
-<!-- GAME SELESAI -->
-<div id="gameCompleted">
+  <!-- GAME SELESAI -->
+  <div id="gameCompleted">
     <h1>🎉 Selamat! Kamu Menyelesaikan Semua Hewan!</h1>
-    <p>Total koin: <span id="finalCoins">0</span></p>
     <button onclick="ulangGame()">Main Lagi</button>
-</div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
