@@ -1,6 +1,6 @@
 // Data Hewan
 const allAnimals = [
-    {name:"kucing", image:"k.jpg"},
+     {name:"kucing", image:"k.jpg"},
     {name:"anjing", image:"A.jpg"},
     {name:"gajah", image:"G.jpg"},
     {name:"harimau", image:"H.jpg"},
@@ -15,14 +15,7 @@ const allAnimals = [
     {name:"unta", image:"unta.avif"},
     {name:"monyet", image:"J.jpg"}
 ];
-
-let level = 1, 
-    maxLevel = 3, 
-    usedAnimals = [], 
-    animalsThisLevel = [], 
-    timer, 
-    timeLeft = 30, 
-    coins = 0;
+let level=1, maxLevel=3, usedAnimals=[], animalsThisLevel=[], timer, timeLeft=30, coins=0;
 
 // Elements
 const animal1Img = document.getElementById("animal1");
@@ -37,7 +30,6 @@ const coinDisplay = document.getElementById("coinDisplay");
 const levelCircles = document.querySelectorAll(".level-circle");
 const menu = document.getElementById("menu");
 
-// Navigasi Menu
 function startGame(){
     menu.style.display='none';
     gameContainer.style.display='block';
@@ -55,7 +47,6 @@ function restartGameToMenu(){
     menu.style.display='block';
 }
 
-// Game Functions
 function startLevel(){
     if(level>maxLevel){
         gameContainer.style.display='none';
